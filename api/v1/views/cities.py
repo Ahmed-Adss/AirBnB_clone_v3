@@ -3,8 +3,8 @@
 create cities 
 '''
 from flask import jsonify, abort, request
-from modles.state import State
-from modles.city import City
+from models.state import State
+from models.city import City
 from models import storage
 from api.v1.views import app_views
 
