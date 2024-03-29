@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """
 route for handling Place objects and operations
@@ -8,7 +7,6 @@ from api.v1.views import app_views, storage
 from models.place import Place
 from models.city import City
 from models.user import User
-
 
 
 @app_views.route("/cities/<city_id>/places", methods=["GET"],

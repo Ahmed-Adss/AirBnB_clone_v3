@@ -6,6 +6,7 @@ from flask import jsonify, abort, request
 from api.v1.views import app_views, storage
 from models.state import State
 
+
 @app_views.route("/states", methods=["GET"], strict_slashes=False)
 def state_retrive():
     """
@@ -15,7 +16,7 @@ def state_retrive():
     state_obj = storage.all("State")
     for obj in state_obj.values():
         state_lst.append(obj.to_dict())
-    
+
     return jsonify(state_lst)
 
 

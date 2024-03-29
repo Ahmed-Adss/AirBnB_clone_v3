@@ -14,7 +14,7 @@ def amenity_all_get():
     :return: json of all states
     """
     amn_lst = []
-    for  key, value in storage.all(Amenity).items():
+    for key, value in storage.all(Amenity).items():
         amn_lst.append(value.to_dict())
     return jsonify(amn_lst)
 
