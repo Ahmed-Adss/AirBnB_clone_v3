@@ -22,7 +22,7 @@ def get_user(user_id):
     '''
     Retrieves the last of all user objects
     '''
-    users = storage.get(User, user_id)
+    user = storage.get(User, user_id)
     if user:
         return jsonify(user.to_dict())
     else:
@@ -34,7 +34,7 @@ def delete_user(user_id):
     '''
     delete the last of all user objects
     '''
-    users = storage.get(User, user_id)
+    user = storage.get(User, user_id)
     if user:
         storage.delete(user)
         storage.save()
