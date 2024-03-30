@@ -33,5 +33,5 @@ def get_stats():
 
     response = jsonify(stats)
     response.status_code = 200
-    
+
     return response
