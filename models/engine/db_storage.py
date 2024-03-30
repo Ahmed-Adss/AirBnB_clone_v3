@@ -54,30 +54,24 @@ class DBStorage:
     def new(self, obj):
         """add the object to the current database session"""
         self.__session.add(obj)
-
+    
     def get(self, cls, id):
-        """
-        fetches specific object
-        :param cls: class of object as string
-        :param id: id of object as string
-        :return: found object or None
-        """
-        all_class = self.all(cls)
-
-        for obj in all_class.values():
-            if id == str(obj.id):
-                return obj
-
-        return None
+        """A method to retrieve one object"""
+        if cls is None or id is None:
+            return (None)
+        dict_obj = models.storage.all(cls)
+        for key in dict_obj:
+            if dict_obj[key].id == id:
+                return dict_obj[key]
+        return (None)
 
     def count(self, cls=None):
-        """
-        count of how many instances of a class
-        :param cls: class name
-        :return: count of instances of a class
-        """
-        return len(self.all(cls))
-
+        """A method to count the number of objects in storage"""
+        if cls is None:
+            return len(models.storage.all())
+        else:
+            return len(models.storage.all(cls))
+    
     def save(self):
         """commit all changes of the current database session"""
         self.__session.commit()
