@@ -17,7 +17,7 @@ def api_status():
     return jsonify(response)
 
 
-@app_views.route('/status')
+@app_views.route('/stats')
 def get_stats():
     '''
 
@@ -31,4 +31,7 @@ def get_stats():
         'users': storage.count('User'),
     }
 
-    return jsonify(stats)
+    response = jsonify(stats)
+    response.status_code = 200
+    
+    return response
