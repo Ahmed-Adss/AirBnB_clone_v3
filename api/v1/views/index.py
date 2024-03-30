@@ -17,7 +17,7 @@ def api_status():
     return jsonify(response)
 
 
-@app_views.route('/stats')
+@app_views.route('/stats', methods=['GET'], strict_slashes=False)
 def get_stats():
     '''
 
